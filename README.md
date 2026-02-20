@@ -37,5 +37,22 @@ for (LocalDate solarDate : solarDates) {
 }
 ```
 
+## Dependency (JitPack)
+```
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.ethanlamtt</groupId>
+        <artifactId>viet-chrono</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencies>
+```
 ## License
 MIT License
