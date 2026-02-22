@@ -74,28 +74,53 @@ LunisolarCalendar calendar = LunisolarCalendars.of("HoNgocDuc");
 ```
 Note that all registered instances are instance-controlled.
 
-### Convert a solar date to a lunisolar date 
-In Vietnam history, the timezone has not always been UTC+7, so the result 
+### Convert a solar date to a lunar date
+In Vietnam history, the timezone has not always been UTC+7, so the result
 may differ from other implementations.
 ```java 
-
-// Defines time zone rules.
+// Gets an instance from the factory
+LunisolarCalendar calendar = LunisolarCalendars.ofDefault();
+// Defines timezone rules.
 ZoneId zoneId = ZoneId.of("Asia/Ho_Chi_Minh");
 // Defines a solar date to be converted.
 LocalDate solarDate = LocalDate.of(2026, 2, 21);
 
-// We assume that the calendar instance has been provided.
+// Invokes getLunarDate method on calendar instance to get the lunar date.
+LunarDate lunarDate = calendar.getLunarDate(solarDate, zoneId);
+
+// Prints it and see the result.
+System.out.println(lunarDate);
+```
+The output:
+```java
+LunarDate(year=2026, month=1, day=5, isLeapYear=false)
+```
+
+### Convert a solar date to a lunisolar date 
+```java 
+// Gets an instance from the factory
+LunisolarCalendar calendar = LunisolarCalendars.ofDefault();
+// Defines timezone rules.
+ZoneId zoneId = ZoneId.of("Asia/Ho_Chi_Minh");
+// Defines a solar date to be converted.
+LocalDate solarDate = LocalDate.of(2026, 2, 21);
+
+// Invokes getDate method on calendar instance to get the lunisolar date.
 LunisolarDate lunisolarDate = calendar.getDate(solarDate, zoneId);
 
+// Prints it and see the result.
 System.out.println(lunisolarDate);
 ```
 The output:
 ```java
 LunisolarDate(
-    solarDate=2026-02-21
-    lunarDate=LunarDate(year=2026, month=1, day=5, isLeapYear=false)
-    dailySolarTerm=DailySolarTerm(termOfDay=RAIN_WATER, transition=null)
-    ...
+        solarDate=2026-02-21, 
+        lunarDate=LunarDate(year=2026, month=1, day=5, isLeapYear=false), 
+        dailySolarTerm=DailySolarTerm(termOfDay=RAIN_WATER, transition=null),
+        sexagenaryDateTime=SexagenaryDateTime(
+                date=SexagenaryDate(year=YANG_FIRE HORSE, month=YANG_METAL TIGER, day=YANG_FIRE TIGER), 
+                hour=YANG_EARTH RAT
+        )
 )
 ```
 
