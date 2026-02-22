@@ -140,7 +140,8 @@ final class DefaultLunisolarCalendar implements LunisolarCalendar {
         return LunisolarDate.of(solarDate, lunarDate, dailySolarTerm, sexagenaryDateTime, holidayIds);
     }
 
-    private LunarDate getLunarDate(LocalDate solarDate, ZoneId zoneId) {
+    @Override
+    public LunarDate getLunarDate(LocalDate solarDate, ZoneId zoneId) {
         int solarYear = solarDate.getYear();
         Moment anchor = Moment.ofInstant(
                 solarDate.atStartOfDay(zoneId)

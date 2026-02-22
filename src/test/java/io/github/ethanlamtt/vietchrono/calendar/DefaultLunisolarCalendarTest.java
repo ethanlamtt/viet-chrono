@@ -57,4 +57,21 @@ class DefaultLunisolarCalendarTest {
                 date.toSexagenaryDateTime()
         );
     }
+
+    @Test
+    void testGetLunarDate() {
+        LunisolarCalendar calendar = DefaultLunisolarCalendar.getInstance();
+
+        LunarDate lunarDate = calendar.getLunarDate(
+                LocalDate.of(2026, 2, 21),
+                ZoneId.of("Asia/Ho_Chi_Minh")
+        );
+
+        assertNotNull(lunarDate);
+        assertEquals(2026, lunarDate.year());
+        assertEquals(1, lunarDate.monthValue());
+        assertNotNull(lunarDate.month());
+        assertFalse(lunarDate.month().isLeapMonth());
+        assertEquals(5, lunarDate.dayOfMonth());
+    }
 }

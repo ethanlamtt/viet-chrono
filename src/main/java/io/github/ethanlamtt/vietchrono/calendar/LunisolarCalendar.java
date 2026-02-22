@@ -1,7 +1,13 @@
 package io.github.ethanlamtt.vietchrono.calendar;
 
+import io.github.ethanlamtt.vietchrono.astro.Moment;
+import io.github.ethanlamtt.vietchrono.holiday.HolidayId;
+import io.github.ethanlamtt.vietchrono.sexagenary.SexagenaryDateTime;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.List;
 
 /**
  * Represents for a lunisolar calendar system.
@@ -26,4 +32,8 @@ public interface LunisolarCalendar {
      * @return a lunisolar date at a specified time zone.
      */
     LunisolarDate getDate(LocalDate solarDate, ZoneId zoneId);
+
+    default LunarDate getLunarDate(LocalDate solarDate, ZoneId zoneId) {
+        throw new UnsupportedOperationException();
+    }
 }
