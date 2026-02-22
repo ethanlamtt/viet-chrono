@@ -9,7 +9,7 @@ A lunisolar date's components include:
 - Sexagenary date (cyclic year, month, day and hour).
 - List of auspicious hours of the day.
 - List of holidays of the solar or lunar date.
-## Quick start
+## Quickstart
 ```java
 // Defines a list of solar dates. 
 LocalDate[] solarDates = {
@@ -52,7 +52,7 @@ For maven projects:
     <dependency>
         <groupId>com.github.ethanlamtt</groupId>
         <artifactId>viet-chrono</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </dependency>
 </dependencies>
 ```
