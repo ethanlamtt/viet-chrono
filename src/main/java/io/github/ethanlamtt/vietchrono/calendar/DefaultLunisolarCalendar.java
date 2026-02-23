@@ -205,15 +205,14 @@ final class DefaultLunisolarCalendar implements LunisolarCalendar {
 
         int monthIndex = lunations(currentNovNewMoon, currentNewMoon);
 
-        int month;
+        int month = (monthIndex + 10) % 12 + 1;
         boolean isLeapMonth = false;
 
-        if (!hasLeapMonth || monthIndex < leapMonthIndex)
-            month = (monthIndex + 10) % 12 + 1;
-        else {
-            month = (monthIndex + 9) % 12 + 1;
+        if (hasLeapMonth) {
             if (monthIndex == leapMonthIndex)
                 isLeapMonth = true;
+            else if (monthIndex > leapMonthIndex)
+                month = (monthIndex + 9) % 12 + 1;
         }
 
         int lunarYear = anchorYear;
