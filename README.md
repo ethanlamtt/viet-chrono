@@ -52,7 +52,7 @@ For maven projects:
     <dependency>
         <groupId>com.github.ethanlamtt</groupId>
         <artifactId>viet-chrono</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </dependency>
 </dependencies>
 ```
